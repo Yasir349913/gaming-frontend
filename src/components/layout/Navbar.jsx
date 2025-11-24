@@ -1,33 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, User, Settings, LogOut, Briefcase } from "lucide-react"; // ✅ using lucide-react
+import { Menu, X, ChevronDown, User, Settings, LogOut, Briefcase } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
-
-// Base navigation items
-// const baseNavigation = [
-//     {
-//         name: "Why Us",
-//         href: "/why-us",
-//         dropdown: true,
-//         items: [
-//             { name: "Success Stories", href: "/success-stories" },
-//             { name: "How it Works", href: "/how-it-works" },
-//             { name: "Trust & Safety", href: "/trust-safety" },
-//             { name: "Reviews", href: "/reviews" },
-//         ],
-//     },
-//     { name: "Enterprise", href: "/enterprise" },
-// ];
 
 // Navigation items for consultants (show "Find Work" and "My Works")
 const consultantNavigation = [
     { name: "Find Work", href: "/find-work" },
     { name: "My Works", href: "/consultants/teams" },
     { name: "Forum", href: "/forum" },
-    // ...baseNavigation,
 ];
 
 // Navigation items for clients (show "Find Talent")
@@ -35,7 +18,6 @@ const clientNavigation = [
     { name: "Find Talent", href: "/consultants" },
     { name: "My Teams", href: "/teams" },
     { name: "Forum", href: "/forum" },
-    // ...baseNavigation,
 ];
 
 // Navigation items for unauthenticated users (show both)
@@ -43,7 +25,6 @@ const guestNavigation = [
     { name: "Find Talent", href: "/find-talent" },
     { name: "Find Work", href: "/find-work" },
     { name: "Forum", href: "/forum" },
-    // ...baseNavigation,
 ];
 
 export default function Navbar() {
@@ -205,7 +186,6 @@ export default function Navbar() {
                                             {/* User Info Header */}
                                             <div className="px-4 py-3 border-b border-black/10">
                                                 <div className="flex items-center gap-3">
-
                                                     <div>
                                                         <p className="font-medium text-black">{user?.name || 'User'}</p>
                                                         <p className="text-sm text-black/60">{user?.email}</p>
@@ -236,10 +216,9 @@ export default function Navbar() {
                                                     <User className="h-4 w-4" />
                                                     <span>Account</span>
                                                 </Link>
-
                                                 <button
                                                     onClick={handleLogout}
-                                                    className="flex items-center gap-3 px-4 py-3 text-white/85 hover:bg-white/5 hover:text-white transition w-full text-left"
+                                                    className="flex items-center gap-3 px-4 py-3 text-black/85 hover:bg-black/5 hover:text-black transition w-full text-left"
                                                 >
                                                     <LogOut className="h-4 w-4" />
                                                     <span>Logout</span>
@@ -309,7 +288,7 @@ export default function Navbar() {
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className="block px-4 py-2 rounded-lg text-white/85 hover:bg-white/5 hover:text-white transition"
+                                        className="block px-4 py-2 rounded-lg text-black/85 hover:bg-black/5 hover:text-black transition"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {item.name}
@@ -373,7 +352,7 @@ export default function Navbar() {
                                                 handleLogout();
                                                 setMobileMenuOpen(false);
                                             }}
-                                            className="flex items-center gap-3 px-4 py-3 rounded-lg text-white/85 hover:bg-white/5 hover:text-white transition w-full text-left"
+                                            className="flex items-center gap-3 px-4 py-3 rounded-lg text-black/85 hover:bg-black/5 hover:text-black transition w-full text-left"
                                         >
                                             <LogOut className="h-4 w-4" />
                                             <span>Logout</span>
@@ -385,7 +364,7 @@ export default function Navbar() {
                                         <Link
                                             href="/signin"
                                             onClick={() => setMobileMenuOpen(false)}
-                                            className="block px-4 py-2 rounded-lg text-white/85 hover:bg-white/5 hover:text-white transition"
+                                            className="block px-4 py-2 rounded-lg text-black/85 hover:bg-black/5 hover:text-black transition"
                                         >
                                             Login
                                         </Link>
